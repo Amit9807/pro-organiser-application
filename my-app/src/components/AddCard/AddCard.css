@@ -1,0 +1,10 @@
+.cardMembers{
+    border-radius: 100%;
+    padding: 8px; 
+    margin-left: 3px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: gray;
+    color: #fff;
+  }

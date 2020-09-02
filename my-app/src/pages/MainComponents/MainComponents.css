@@ -1,0 +1,16 @@
+.Navbar{
+    background-color: blue;
+}
+
+.MainComp{
+    display: flex;
+    flex-flow: row;
+    height: 100px;
+    width: 300px;
+    margin-right: 10px;
+    text-align: center;
+    margin-left: 50px;
+    box-shadow:  2px 2px 2px grey;
+}
+
+

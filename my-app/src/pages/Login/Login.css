@@ -1,0 +1,13 @@
+.LoginForm{
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 20rem;
+  box-shadow:  10px 10px 5px grey;
+}
+
+h2{
+    position: relative;
+    left: 50px;
+}
+
