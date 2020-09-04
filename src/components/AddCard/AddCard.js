@@ -2,7 +2,7 @@ import React,{useContext , useState , useEffect} from 'react'
 import {Card} from 'react-bootstrap';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
-import {Button , InputGroup , FormControl , Dropdown} from 'react-bootstrap'
+import {Button  } from 'react-bootstrap'
 import Axios from 'axios';
 import { AuthContext} from '../../context/auth'
 import './AddCard.css';
@@ -194,7 +194,7 @@ const AddCard=(props)=>{
                     <div className="modal-dialog modal-lg" role="document">
                         <div className="modal-content ">
                         <div className="modal-header">
-                            <h5 className="modal-title" style={{color: "blue"}}>Add Cart</h5>
+                            <h5 className="modal-title" style={{color: "blue"}}>{EditCard ? "Edit Card" : "Add Card"}</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close" onClick={handleClose}>
                             <span aria-hidden="true">&times;</span>
                             </button>

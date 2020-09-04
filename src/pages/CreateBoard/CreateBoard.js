@@ -56,6 +56,6 @@ const CreateBoard=(props)=>{
     )
 }
 
-export default CreateBoard;
+export default withRouter(CreateBoard);
 
 

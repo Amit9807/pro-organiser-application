@@ -1,7 +1,6 @@
 import React, { useContext , useState} from 'react';
 import {AuthContext} from '../../context/auth'
 import Column from '../../components/Addcolumn/Column'
-import  AddCard  from "../../components/AddCard/AddCard";
 import {Button} from 'react-bootstrap'
 import { withRouter, useHistory } from "react-router-dom";
 import Axios from 'axios';
