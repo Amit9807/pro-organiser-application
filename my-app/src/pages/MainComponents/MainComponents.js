@@ -9,12 +9,10 @@ function MainComponents(){
 
     
     const { currentUser } = useContext(AuthContext);
-
-    
     const userId = currentUser.uid;
     
-    const [boardContents, setBoardContents] = useState({});
-    const [showBoard, setshowBoard] = useState(false);
+    const [boardContents, setBoardContents] = useState('');
+    const [showBoard, setShowBoard] = useState(false);
 
 
     useEffect(()=>{
@@ -26,11 +24,6 @@ function MainComponents(){
         Axios.get(`https://pro-organizers.firebaseio.com/${userId}/Boards.json`)
         .then((response)=>{
           setBoardContents(response.data)
-          console.log("jsbsk",response.data);
-            if(boardContents !==null){
-              setshowBoard(true);
-            }
-            else setshowBoard(false);
         })
         .catch((error)=>{
             console.log(error);
@@ -44,7 +37,7 @@ function MainComponents(){
         <div>
           <Header />
             {
-                showBoard ? 
+                (boardContents !== null) ? 
                 (
                    Object.entries(boardContents).map((res)=>(
                   <Link
@@ -57,15 +50,15 @@ function MainComponents(){
                       },
                     }}
                   >
-                    <div className="d-flex flex-row" key={res[1].name}>
-                     <button className="MainComp mx-4 mt-2">{res[1].name}</button>
+                    <div className="mt-4 " style={{display : "inline-block"}} key={res[1].name}>
+                     <button className="MainComp mx-4 mt-4 ">{res[1].name}</button>
                     </div>
                   </Link>
                    ))
                 )
                 :
                 (
-                    <p className="mx-sm-4 " >You haven't created any boards. Kindly click on the 'Create Board' button in the navigation bar to create a board.</p>
+                    <p className="mx-sm-4 mt-4" >You haven't created any boards. Kindly click on the 'Create Board' button in the navigation bar to create a board.</p>
                       
                 )
             }

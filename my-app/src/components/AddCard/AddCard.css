@@ -6,5 +6,20 @@
     font-size: 16px;
     font-weight: 300;
     background-color: gray;
-    color: #fff;
+    color: white;
   }
+
+  .Card{
+    background-color: rgba(194, 193, 193, 0.952);
+  }
+
+.Card.Link  button{
+  background-color: white;
+}
+
+.close{
+  position: relative;
+  left: 10rem;
+  top: -10px;
+}
+

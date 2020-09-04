@@ -9,8 +9,10 @@ import './Boards.css'
 
 const Boards=(props)=>{
 console.log("boards",props);
+
 const [AddColumn , setAddColumn] = useState('');
 const [show, setShow] = useState(false);
+
 
 const {currentUser} = useContext(AuthContext);
 
@@ -56,9 +58,9 @@ const ColumnSubmit=(props)=>{
 
     return(
         <div>
-            <div className="d-flex justify-content-between mt-4">
-                    <h2>{props.match.params.boardName}</h2>
-                    <Button variant="danger" onClick={DeleteBoard}>Danger</Button>
+            <div className="title d-flex justify-content-between mt-4">
+                    <h2 className="borad-title">{props.match.params.boardName}</h2>
+                    <Button variant="danger" onClick={DeleteBoard}>Delete Board</Button>
                     
             </div>
             <div className="Column-Data">

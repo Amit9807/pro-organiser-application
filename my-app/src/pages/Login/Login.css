@@ -1,9 +1,11 @@
+
 .LoginForm{
   position: absolute;
   top: 30%;
   left: 30%;
   width: 20rem;
   box-shadow:  10px 10px 5px grey;
+  background-image: url(../../login.jpg);
 }
 
 h2{
@@ -11,3 +13,10 @@ h2{
     left: 50px;
 }
 
+
+.signbtn{
+  position: relative;
+  width: 18rem;
+  height: 40px;
+  left: 20px;
+}

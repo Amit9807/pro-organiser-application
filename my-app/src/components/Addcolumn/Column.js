@@ -19,6 +19,7 @@ const Column=(props)=>{
 
    useEffect(()=>{
        GetColumnData();
+  
    })
 
    const GetColumnData=()=>{
@@ -30,7 +31,8 @@ const Column=(props)=>{
         console.log(error);
     })
    }
-   
+ 
+
 
     return(
         <div>
@@ -38,9 +40,10 @@ const Column=(props)=>{
                 (ColumnData !== null) ? 
                 (
                     Object.entries(ColumnData).map((res)=>(
-                           
-                    <AddCard id={res[0]} name={res[1].name} BoardId={props.BoardId} members={props.members}/>
-                               
+                   
+                   
+                    <AddCard id={res[0]} name={res[1].name} BoardId={props.BoardId} members={props.members} />
+                     
                   ))
                 )
                 :
