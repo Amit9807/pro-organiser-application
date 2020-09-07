@@ -84,7 +84,7 @@ const ColumnSubmit=(props)=>{
                         </div>
                         <div className="modal-body">
                             <label>Enter a column name:</label>
-                            <input type="text" id="column_name" className="form-control" style={{width: 750}}  onChange={(e)=>{setAddColumn(e.target.value)}} value={AddColumn}/>
+                            <input type="text" id="name" className="form-control" style={{width: 750}}  onChange={(e)=>{setAddColumn(e.target.value)}} value={AddColumn}/>
                         </div>
                         <div className="modal-footer">
                             <button type="button" id="CreateColumn" className="btn3 btn-primary" onClick={ColumnSubmit}>Add Column</button>
