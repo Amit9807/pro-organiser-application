@@ -7,12 +7,12 @@ export const AuthContext = React.createContext();
 export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
 
-  // useEffect(() => {
-  //   fire.auth().onAuthStateChanged((user) => {
-  //     setCurrentUser(user);
-  //     console.log("Auth",user.uid);
-  //   });
-  // }, []);
+  useEffect(() => {
+    fire.auth().onAuthStateChanged((user) => {
+      setCurrentUser(user);
+      console.log("Auth",user.uid);
+    });
+  }, []);
 
   return (
     <div>
