@@ -55,8 +55,8 @@ function Login(props){
   (<button  type="submit" className="signbtn btn btn-primary rounded-top" onClick={signup} >Register</button>);
 
   let login_register = loginBtn ? 
-  (<a  className="loginBtn btn  " onClick={() => getAction('reg')}>Register</a>) :
-  (<a  className="loginBtn btn  " onClick={() => getAction('login')}>Login</a>);
+  (<a  className="loginBtn btn  " onClick={() => getAction('reg')} style={{color: "white"}}>Register</a>) :
+  (<a  className="loginBtn btn  " onClick={() => getAction('login')} style={{color: "white"}}>Login</a>);
 
   
 
@@ -67,18 +67,18 @@ function Login(props){
                   
                   <h2 className="mx-4 p-4 mt-4" style={{color: "blue"}}> {formTitle}</h2>
                     <Form.Group  sm={12}  as={Col} controlId="formBasicEmail">
-                      <Form.Label>Email address</Form.Label>
-                      <input type="password" className="form-control " id="email" name="email" value={email} placeholder="Enter a Email" onChange={(event) => setEmail(event.target.value)}  />
+                      <Form.Label style={{color: "white"}}>Email address</Form.Label>
+                      <input type="text" className="form-control " id="email" name="email" value={email} placeholder="Enter a Email" onChange={(event) => setEmail(event.target.value)}  />
                   </Form.Group>
                     <Form.Group  sm={12} as={Col} controlId="formBasicPassword">
-                      <Form.Label>Password</Form.Label>
+                      <Form.Label style={{color: "white"}}>Password</Form.Label>
                       <input type="password" className="form-control" id="password" name="password" value={password} placeholder="Enter a password" onChange={(event) => setPassword(event.target.value)} />
                      </Form.Group>
                     <div className="">
                      <div className="submit mt ">
                         {submitBtn}
                       </div>
-                      <h6 className="mt-4  d-flex justify-content-center">or</h6>
+                      <h6 className="mt-4  d-flex justify-content-center" style={{color: "white"}}>or</h6>
                      <div className="Login_register mt-4 my-4 d-flex justify-content-center">
                         {login_register}
                       </div>

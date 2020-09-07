@@ -28,7 +28,7 @@ const AddCard=(props)=>{
 
     const [EditCard , setEditCard] = useState(false);
 
-            
+       
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
@@ -41,10 +41,13 @@ const AddCard=(props)=>{
 
     const BoardId=props.BoardId;
 
+    const memberArr = Member.split(",");
 
+ 
     useEffect(() => {
         getCardData(props.id);
-    }, [])
+        setMember(props.members)
+    })
 
     const DeleteCard=(columnId)=>{
        if(window.confirm("Are you sure you want to Delete Card")){
@@ -66,7 +69,7 @@ const AddCard=(props)=>{
         })
         .then((response)=>{
             alert("Card Data Added succesfully");
-            console.log(response);
+            console.log("CardSubmit",response);
             setShowModal(false);
             getCardData(props.id);
 
@@ -138,14 +141,40 @@ const AddCard=(props)=>{
         }
     }
 
+    const onSelectChange = (e) => {
+        const values = [...e.target.selectedOptions].map((opt) => opt.value);
+        setCardTeamDetail(values);
+        setMember(values);
+        console.log(values);
+
+      };
+
+      const drag = (itemData, dragCardId,columnId, e) => {
+        var draggedCard = {
+          columnId: columnId,
+          dragCardId: dragCardId,
+          cardData: itemData,
+        };
+       
+         e.dataTransfer.setData("text/plain", JSON.stringify(draggedCard));
+        console.log(draggedCard);
+
+
+      };
+    
+
+        const allowDrop = (e) => {
+            e.preventDefault();
+          };
+
     
     return(
         
-    <div style={{display: "inline-block"}}> 
+    <div > 
 
-        <div className="mt-4" style={{display: "inline-block"}}>
+        <div className="mt-4" >
 
-                     <Card className="Card mt-4 mx-3" style={{ width: '18rem' }}>
+                     <Card className="Card mt-4 mx-3" style={{ width: '18rem' }} >
                         <Card.Body >
                           <Card.Title key={props.id} className="d-flex justify-content-between">
                               {props.name}
@@ -155,7 +184,8 @@ const AddCard=(props)=>{
                             {
                          CardData ? 
                             Object.entries(CardData).map((res)=>(
-                             <Card className="mt-4">
+                               
+                             <Card className="mt-4"     draggable="true"  onDragStart={(e)=>drag(res[1] ,res[0] ,props.id ,e)} >
                                 <Card.Body key={res[0]}>
                                 <Card.Title > {res[1].title}</Card.Title>
                                
@@ -175,6 +205,7 @@ const AddCard=(props)=>{
                                 </Card.Body>
                              </Card>
                                 ))
+                                
 
                                 :
                                 <div>
@@ -182,7 +213,7 @@ const AddCard=(props)=>{
                                 </div>
                             }
                            </Card.Text>
-                          <Card.Link > <Button  variant="light" size="lg" block onClick={handleShow}  >Add a Card</Button></Card.Link>
+                          <Card.Link > <Button  variant="light" size="lg" block onClick={handleShow} onDragOver={allowDrop}  >Add a Card</Button></Card.Link>
                         </Card.Body>
                       </Card>  
         </div>
@@ -205,7 +236,13 @@ const AddCard=(props)=>{
                         </div>
                         <div className="modal-body">
                             <label>Choose members for this task (select multiple if needed)</label>
-                            <input type="text" id="title" className="form-control" style={{width: 750}}   value={EditCard ? CardTeamDetail : props.members} onChange={EditCard ? (e)=>{setCardTeamDetail(props.members)} : (e)=>{setMember(e.target.value)}}  ></input>
+                            {/* <select type="text" id="membersList" className="form-control" style={{width: 750}}   value={EditCard ? CardTeamDetail : props.members}  > 
+                             <option  value={props.members }>{props.members}</option>
+                            </select> */}
+
+                          <select  id="membersList" name="membersList" className="form-control" style={{width: 750}}  value={EditCard ? CardTeamDetail : Member} ><br />
+                          {memberArr.map((item) => (<option value={EditCard ? CardTeamDetail : item} key={item} onChange={onSelectChange} >{item}</option>))}
+                         </select>
                          </div>  
                          <div className="modal-body">
                             <label>Add the description for your task</label>

@@ -64,8 +64,10 @@ const ColumnSubmit=(props)=>{
             </div>
             <div className="Column-Data">
             <Column BoardId={props.location.state.boardId} members={props.location.state.members}/>
+            <div></div>
             <button className="btn1 mt-4 mx-4 border-0" onClick={handleShow}>Add Column</button> 
             </div>
+
 
         <div>
         <form >

@@ -38,16 +38,16 @@ const CreateBoard=(props)=>{
                <form className="form1 mx-sm-5 mt-sm-4" onSubmit={Create} >
                         <div className="form-group mx-sm-3 ">
                             <label>Enter a name of your board</label>
-                            <input type="text" class="form-control col-sm-8" id="name" value={Name} onChange={(event) => setName(event.target.value)} placeholder="eg Agile Sprint Board" />
+                            <input type="text" id="name" class="form-control col-sm-8"  value={Name} onChange={(event) => setName(event.target.value)} placeholder="eg Agile Sprint Board" />
                         </div>
                         <div className="form-group mx-sm-3 ">
                             <label >Add your team member</label>
-                            <input type="text" class="form-control col-sm-8" id="team" value={teamMembers} onChange={(event) => setTeamMembers(event.target.value)} placeholder="Add your team (seprate by commas)" />
+                            <input type="text" id="team" class="form-control col-sm-8"  value={teamMembers} onChange={(event) => setTeamMembers(event.target.value)} placeholder="Add your team (seprate by commas)" />
                         </div>
                         
                         <div className="form-group mx-sm-3 ">
                             <label >Enter the type of your board</label>
-                            <input type="text" class="form-control col-sm-8" id="type" value={type} onChange={(event) => setType(event.target.value)} aria-describedby="emailHelp" placeholder="eg Design UX" />
+                            <input type="text" id="type" class="form-control col-sm-8"  value={type} onChange={(event) => setType(event.target.value)} aria-describedby="emailHelp" placeholder="eg Design UX" />
                         </div>
                       
                         <button type="submit" class="btn btn-primary mx-sm-3" id="CreateBoard">Create</button>
