@@ -27,7 +27,7 @@ const CreateBoard=(props)=>{
                     type: type
                  })
                 .then(response=>{
-                    alert("Board added succesfully");
+                    // alert("Board added succesfully");
                     history.push("/");
                     console.log(response);
                 })
