@@ -20,7 +20,8 @@ function App() {
      <Router>
        <Switch>
          <PrivateRoute path="/" exact  component = {MainComponents} />
-         <PrivateRoute path="/createboard" component = {CreateBoard} />
+         {/* <PrivateRoute path="/createboard" component = {CreateBoard} /> */}
+         <Route path="/createboard" component = {CreateBoard} />
          <PrivateRoute path="/board/:boardName" component = {Boards} />
           <Route path="/Login" component={Login} />
           <Route path="*" render = {() => <h3>Page not Found!</h3>} />
@@ -35,3 +36,4 @@ export default App;
 
 
 
+//2ImxSdEznhXNVC7wM8A2AmK2E1b2

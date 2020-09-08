@@ -15,7 +15,8 @@ const CreateBoard=(props)=>{
     const [teamMembers, setTeamMembers] = useState("");
     const [type, setType] = useState("");
 
-    const userId =currentUser.uid;
+    // const userId =currentUser.uid;
+    const userId="2ImxSdEznhXNVC7wM8A2AmK2E1b2";
     const history = useHistory();
 
   const Create=(e)=>{
