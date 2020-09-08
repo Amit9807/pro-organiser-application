@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/pro-organiser-application/static/css/main.484c7848.chunk.css",
+    "main.js": "/pro-organiser-application/static/js/main.6160291f.chunk.js",
+    "main.js.map": "/pro-organiser-application/static/js/main.6160291f.chunk.js.map",
+    "runtime-main.js": "/pro-organiser-application/static/js/runtime-main.7d10b170.js",
+    "runtime-main.js.map": "/pro-organiser-application/static/js/runtime-main.7d10b170.js.map",
+    "static/js/2.88e83492.chunk.js": "/pro-organiser-application/static/js/2.88e83492.chunk.js",
+    "static/js/2.88e83492.chunk.js.map": "/pro-organiser-application/static/js/2.88e83492.chunk.js.map",
+    "index.html": "/pro-organiser-application/index.html",
+    "precache-manifest.e5c7b5ef339dfb26c29bdbc1fcd78d01.js": "/pro-organiser-application/precache-manifest.e5c7b5ef339dfb26c29bdbc1fcd78d01.js",
+    "service-worker.js": "/pro-organiser-application/service-worker.js",
+    "static/css/main.484c7848.chunk.css.map": "/pro-organiser-application/static/css/main.484c7848.chunk.css.map",
+    "static/js/2.88e83492.chunk.js.LICENSE.txt": "/pro-organiser-application/static/js/2.88e83492.chunk.js.LICENSE.txt",
+    "static/media/Login.css": "/pro-organiser-application/static/media/login.1c6e8371.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7d10b170.js",
+    "static/js/2.88e83492.chunk.js",
+    "static/css/main.484c7848.chunk.css",
+    "static/js/main.6160291f.chunk.js"
+  ]
+}
