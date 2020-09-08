@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import {Button  } from 'react-bootstrap'
 import Axios from 'axios';
-import { AuthContext} from '../../context/auth'
+// import { AuthContext} from '../../context/auth'
 import './AddCard.css';
 
 
@@ -35,9 +35,9 @@ const AddCard=(props)=>{
     const CardhandleClose = () => setshowCardDetails(false);
     const CardhandleShow = () => setshowCardDetails(true);
     
-    const {currentUser}=useContext(AuthContext);
+    // const {currentUser}=useContext(AuthContext);
 
-    const UserId=currentUser.uid;
+    // const UserId=currentUser.uid;
 
     const BoardId=props.BoardId;
 
@@ -51,9 +51,9 @@ const AddCard=(props)=>{
 
     const DeleteCard=(columnId)=>{
        if(window.confirm("Are you sure you want to Delete Card")){
-        Axios.delete(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${columnId}.json`)
+        Axios.delete(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${columnId}.json`)
         .then((res)=>{
-            alert("Card Deleted Succesfully");
+            console.log("addedd succefull");
         })
         .catch((error) => console.log("Error" + error));
        }
@@ -61,14 +61,14 @@ const AddCard=(props)=>{
     
 
     const CardSubmit=(columnId)=>{
-        Axios.post(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${columnId}/card.json`,{
+        Axios.post(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${columnId}/card.json`,{
             title: CardTitle,
             team: Member,
             description: Description,
             date: Date
         })
         .then((response)=>{
-            alert("Card Data Added succesfully");
+            
             console.log("CardSubmit",response);
             setShowModal(false);
             getCardData(props.id);
@@ -81,7 +81,7 @@ const AddCard=(props)=>{
 
 
     const getCardData=(columnId)=>{
-        Axios.get(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${columnId}/card.json`)
+        Axios.get(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${columnId}/card.json`)
         .then((response)=>{
             setCardData(response.data);
             
@@ -103,14 +103,14 @@ const AddCard=(props)=>{
 
 
     const CardArchieve=(columnId,cardIdArchive)=>{
-        if(window.confirm("Are You Sure want to do Archive")){
-            Axios.delete(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${columnId}/card/${cardIdArchive}.json`)
+       
+            Axios.delete(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${columnId}/card/${cardIdArchive}.json`)
             .then((response)=>{
-                alert("Card Deleted Succesfull");
+                
                 setshowCardDetails(false);
                 getCardData(props.id);
             })
-        }
+        
     }
 
 
@@ -122,14 +122,14 @@ const AddCard=(props)=>{
 
     const CardEdit=(columnId ,CardId)=>{
         if(window.confirm("Are you sure to Edit card")){
-            Axios.put(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${columnId}/card/${CardId}.json`,{
+            Axios.put(`https://pro-organizer-cebf4.firebaseio.com/${BoardId}/column/${columnId}/card/${CardId}.json`,{
                 title :  CardTitleDetail,
                 team : CardTeamDetail,
                 description :  CardDescDetail,
                 date: CardDateDetail
             })
             .then((response)=>{
-                alert("Card Edited Succesfully");
+               
                 handleClose();
                 getCardData(props.id);
                 setEditCard(false);

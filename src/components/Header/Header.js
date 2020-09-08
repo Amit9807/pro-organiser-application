@@ -15,7 +15,7 @@ export default class Header extends Component{
              <Navbar.Text className="Nav-link" >
              <a className="mx-sm-3 "><Link to="/"  style={{color: "white"}}>Home</Link></a>
              <a className="mx-sm-3 mx-1"><Link to="/CreateBoard" style={{color: "white"}}>Create Board</Link></a>
-             <a  className="mx-sm-3 mx-1" style={{color: "white"}} onClick={()=>fire.auth().signOut()}>Logout</a>
+             {/* <a  className="mx-sm-3 mx-1" style={{color: "white"}} onClick={()=>fire.auth().signOut()}>Logout</a> */}
              </Navbar.Text>
             </Navbar.Collapse>
             </Navbar>

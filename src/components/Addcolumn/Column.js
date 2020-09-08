@@ -3,7 +3,7 @@ import React, {useState , useContext, useEffect} from 'react';
 
 import AddCard from '../../components/AddCard/AddCard'
 import Axios from 'axios';
-import { AuthContext} from '../../context/auth'
+// import { AuthContext} from '../../context/auth'
 
 
 const Column=(props)=>{
@@ -13,9 +13,9 @@ const Column=(props)=>{
    const [isCardDragged, setIsCardDragged] = useState(false);
 
 
-   const {currentUser}=useContext(AuthContext);
+  //  const {currentUser}=useContext(AuthContext);
 
-   const UserId=currentUser.uid;
+  //  const UserId=currentUser.uid;
 
    const BoardId=props.BoardId;
 
@@ -24,7 +24,7 @@ const Column=(props)=>{
    } )
 
    const GetColumnData=()=>{
-    Axios.get(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column.json`)
+    Axios.get(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column.json`)
     .then((response)=>{
         setColumnData(response.data);
     })
@@ -46,14 +46,14 @@ const Column=(props)=>{
 
     if (draggedCardData !== null) {
       Axios
-      .delete(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${prevColId}/card/${prevCardId}.json`)
+      .delete(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${prevColId}/card/${prevCardId}.json`)
         .then((response) => {
           console.log("card removed");
         })
         .catch((error) => console.log("Error" + error));
  
       Axios
-      .post(`https://pro-organizers.firebaseio.com/${UserId}/boardContents/${BoardId}/column/${droppedColumnId}/card.json`,
+      .post(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column/${droppedColumnId}/card.json`,
         {
             title : draggedCardData.title,
             team: draggedCardData.team,

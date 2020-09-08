@@ -9,19 +9,19 @@ import './CreateBoards.css'
 
 const CreateBoard=(props)=>{
 
-    const { currentUser } = useContext(AuthContext);
+    // const { currentUser } = useContext(AuthContext);
 
     const [Name, setName] = useState("");
     const [teamMembers, setTeamMembers] = useState("");
     const [type, setType] = useState("");
 
     // const userId =currentUser.uid;
-    const userId="2ImxSdEznhXNVC7wM8A2AmK2E1b2";
+    // const userId="2ImxSdEznhXNVC7wM8A2AmK2E1b2";
     const history = useHistory();
 
   const Create=(e)=>{
         e.preventDefault();
-            axios.post(`https://pro-organizers.firebaseio.com/${userId}/Boards.json`, {
+            axios.post(`https://pro-organizer-cebf4.firebaseio.com/Boards.json`, {
                     name: Name,
                     team: teamMembers,
                     type: type
