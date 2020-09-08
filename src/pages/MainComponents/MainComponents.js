@@ -1,6 +1,6 @@
 import React ,{useState,useContext , useEffect} from 'react'
 import Header from '../../components/Header/Header'
-// import {AuthContext} from '../../context/auth'
+import {AuthContext} from '../../context/auth'
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import './MainComponents.css';
@@ -8,8 +8,8 @@ import './MainComponents.css';
 function MainComponents(){
 
     
-    // const { currentUser } = useContext(AuthContext);
-    // const userId = currentUser.uid;
+    const { currentUser } = useContext(AuthContext);
+    const userId = currentUser.uid;
     
     const [boardContents, setBoardContents] = useState('');
     const [showBoard, setShowBoard] = useState(false);
@@ -21,7 +21,7 @@ function MainComponents(){
 
 
     const getBoardContent=()=>{
-        Axios.get(`https://pro-organizer-cebf4.firebaseio.com/Boards.json`)
+        Axios.get(`https://pro-organizers.firebaseio.com/${userId}/Boards.json`)
         .then((response)=>{
           setBoardContents(response.data)
         })

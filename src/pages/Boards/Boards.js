@@ -1,5 +1,5 @@
 import React, { useContext , useState} from 'react';
-// import {AuthContext} from '../../context/auth'
+import {AuthContext} from '../../context/auth'
 import Column from '../../components/Addcolumn/Column'
 import {Button} from 'react-bootstrap'
 import { withRouter, useHistory } from "react-router-dom";
@@ -13,41 +13,40 @@ const [AddColumn , setAddColumn] = useState('');
 const [show, setShow] = useState(false);
 
 
-// const {currentUser} = useContext(AuthContext);
+const {currentUser} = useContext(AuthContext);
 
-// const userId=currentUser.uid;
-// const userId="2ImxSdEznhXNVC7wM8A2AmK2E1b2";
+const userId=currentUser.uid;
 const history = useHistory();
 
 const handleClose = () => setShow(false);
 const handleShow = () => setShow(true);
 
 const BoardId=props.location.state.boardId
-// const BoardId="-MGi7Nt3QeZTpPaIFm5A";
+
 
 const DeleteBoard=()=>{
- 
-    Axios.delete(`https://pro-organizer-cebf4.firebaseio.com/Boards/${BoardId}.json`)
+    if(window.confirm("Are you sure yo want to delete Board")){
+    Axios.delete(`https://pro-organizers.firebaseio.com/${userId}/Boards/${BoardId}.json`)
     .then((response)=>{
-        
+        alert("Boards Delete Succesfully");
         history.push("/");
     })
     .catch((error)=>{
         console.log(error);
     })
- 
+  }
 }
 
 
 
 const ColumnSubmit=(props)=>{
     console.log("ColumnSubmit",props);
-    Axios.post(`https://pro-organizer-cebf4.firebaseio.com/boardContents/${BoardId}/column.json`,{
+    Axios.post(`https://pro-organizers.firebaseio.com/${userId}/boardContents/${BoardId}/column.json`,{
         name: AddColumn
     })
     .then((response)=>{
         console.log(response);
-       
+        alert("Column addedd succesfully");
         setShow(false);
     })
     .catch((error)=>{
@@ -66,7 +65,7 @@ const ColumnSubmit=(props)=>{
             <div className="Column-Data">
             <Column BoardId={props.location.state.boardId} members={props.location.state.members}/>
             <div></div>
-            <button className="btn1 mt-4 mx-4 border-0" onClick={handleShow}>Add a column</button> 
+            <button className="btn1 mt-4 mx-4 border-0" onClick={handleShow}>Add Column</button> 
             </div>
 
 
